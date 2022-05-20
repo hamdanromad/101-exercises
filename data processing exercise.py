@@ -20,7 +20,7 @@ data = (
         'score_olahraga': [97, 95, 96, 100, 94]
     })
 )
-data
+data;
 
 # Task 2
 # Urutkan data frame berdasarkan kolom score_matematika dari nilai
@@ -35,7 +35,7 @@ data_sorted = (
     .sort_values('score_matematika', 
                  ascending=False)
 )
-display(data_sorted)
+display(data_sorted);
 
 data_lowest_score = (
     data_sorted[data_sorted
@@ -44,7 +44,7 @@ data_lowest_score = (
                 .min()]
 )
 display(data_lowest_score)
-print('Siswa dengan score_matematika terkecil yaitu Adi.')
+print('Siswa dengan score_matematika terkecil yaitu Adi.');
 
 # Task 3
 # Filter siswa yang memiliki email ber-domain gmail DAN memiliki 
@@ -57,13 +57,13 @@ data_siswa_gmail = (
     .contains('gmail.com') & data['score_ekonomi']
     .notnull()]
 )
-display(data_siswa_gmail)
+display(data_siswa_gmail);
 
 umur_rata2 = (
     data_siswa_gmail['umur']
     .mean()
 )
-print('Umur rata-rata siswa pada data_siswa_gmail yaitu:', umur_rata2)
+print('Umur rata-rata siswa pada data_siswa_gmail yaitu:', umur_rata2);
 
 # Task 4
 # Membuat dataframe baru dengan data yang tersedia.
@@ -89,14 +89,14 @@ new_data = (
     data
     .append(additional_data)
 )
-display(new_data)
+display(new_data);
 
 median_umur = (
     new_data['umur']
     .median()
 )
 
-print('Median umur seluruh siswa yaitu:', median_umur)
+print('Median umur seluruh siswa yaitu:', median_umur);
 
 # Task 5
 # Membuat dataframe baru dengan data yang tersedia dengan nama data_address
@@ -130,7 +130,7 @@ merge_data = (
            how = 'outer'
     )
 )
-display(merge_data)
+display(merge_data);
 
 # Membandingkan umur rata-rata per alamat
 umur_per_alamat = (
@@ -140,7 +140,7 @@ umur_per_alamat = (
     .sort_values('umur')
     .reset_index()
 )
-display(umur_per_alamat)
+display(umur_per_alamat);
 
 # Melihat alamat dgn umur rata2 terkecil
 result = (
@@ -150,7 +150,7 @@ result = (
         .min()]
 )
 display(result)
-print('Seperti terlihat pada tabel, umur rata-rata terkecil yaitu berasal dari DKI Jakarta.')
+print('Seperti terlihat pada tabel, umur rata-rata terkecil yaitu berasal dari DKI Jakarta.');
 
 # Task 6
 # Import ke-3 file Excel yang telah disediakan di sini.
@@ -174,7 +174,7 @@ terbang_perbulan = (
           'count'})
     .reset_index()
 ) 
-display(terbang_perbulan)
+display(terbang_perbulan);
 # b. Total penerbangan yang CENCELLED per bulan 
 cancelled_perbulan = (
     flights
@@ -183,7 +183,7 @@ cancelled_perbulan = (
           'sum'})
     .reset_index()
 ) 
-display(cancelled_perbulan) 
+display(cancelled_perbulan);
 # c. Rata-rata, Minimum, dan Maksimum ELAPSED_TIME per bulan
 elapsed_perbulan = (
     flights
@@ -194,7 +194,7 @@ elapsed_perbulan = (
          })
     .reset_index()
 )
-display(elapsed_perbulan)
+display(elapsed_perbulan);
 
 # Task 7
 # Case:
@@ -215,7 +215,7 @@ result = (
     .str
     .contains('john f. kennedy|northwest florida')]
 )
-result
+result;
 '''
 Pada result di atas terlihat bahwa kode
 airport john f kennedy yaitu JFK dan
@@ -227,7 +227,7 @@ df_origin = (
         .isin(['JFK','ECP'])
     ]
 )
-df_origin
+df_origin;
 df_new = (
     df_origin
     .groupby('DESTINATION_AIRPORT')
@@ -235,7 +235,7 @@ df_new = (
           'DISTANCE' : ['mean']})
     .reset_index()
 )
-df_new
+df_new;
 df_new.columns = (
     ['Destination_Airport',
      'Flight_Number', 
@@ -246,7 +246,7 @@ result = (
     airports[
         airports['IATA_CODE'] == 'SFO']
 )
-result['AIRPORT']
+result['AIRPORT'];
 
 # Task 8
 # Buatlah 2 dataframe mengikuti petunjuk berikut:
@@ -276,7 +276,7 @@ df_1 = (
                'Crafts'])
           )]
 )
-display(df_1)
+display(df_1);
 
 # Filter CustomerCareCalls diawali digit genap 
 # (2, 4, 6 atau 8)
@@ -291,7 +291,7 @@ df_2 = (
         > df_2['BlockedCalls'])
     ]
 )
-display(df_2)
+display(df_2);
 # Merge data hasil filtering
 data_merge = (
     df_1
@@ -300,7 +300,7 @@ data_merge = (
            how = 'inner'
           )
 )
-data_merge
+data_merge;
 # Total CustomerID dan rata2 DroppedCalls
 # utk tiap Occupation
 result = (
@@ -310,7 +310,7 @@ result = (
           'DroppedCalls' : ['mean']})
     .reset_index()
 )
-result
+result;
 # Melihat occupation dgn rata2 
 # DroppedCalls terbesar
 result.columns = (
@@ -324,4 +324,4 @@ result = (
         'DroppedCalls']
            .max()]
 )
-result
+result;

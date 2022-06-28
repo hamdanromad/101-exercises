@@ -1,5 +1,7 @@
-# Task 1
-# Create python syntax to make a dataframe with the data that has been given
+"""
+Task 1
+Create python syntax to make a dataframe with the data that has been given
+"""
 data = (
     pd
     .DataFrame({
@@ -22,14 +24,16 @@ data = (
 )
 data;
 
-# Task 2
-# Urutkan data frame berdasarkan kolom score_matematika dari nilai
-# terbesar hingga nilai terkecil.
-# Simpan hasilnya dengan nama “data_sorted”.
-# Dari “data_sorted” tersebut, ambil baris pada siswa dengan
-# score_matematika terkecil.
-# Simpan hasilnya dengan nama “data_lowest_score”.
-# Siapa nama siswa dengan score_matematika terkecil tersebut?
+"""
+Task 2
+Urutkan data frame berdasarkan kolom score_matematika dari nilai
+terbesar hingga nilai terkecil.
+Simpan hasilnya dengan nama “data_sorted”.
+Dari “data_sorted” tersebut, ambil baris pada siswa dengan
+score_matematika terkecil.
+Simpan hasilnya dengan nama “data_lowest_score”.
+Siapa nama siswa dengan score_matematika terkecil tersebut?
+"""
 data_sorted = (
     data
     .sort_values('score_matematika', 
@@ -46,11 +50,13 @@ data_lowest_score = (
 display(data_lowest_score)
 print('Siswa dengan score_matematika terkecil yaitu Adi.');
 
-# Task 3
-# Filter siswa yang memiliki email ber-domain gmail DAN memiliki 
-# score_ekomomi tidak null.
-# Simpan hasilnya dengan nama “data_siswa_gmail”.
-# Berapa umur rata-rata dari siswa di “data_siswa_gmail” tersebut?
+"""
+Task 3
+Filter siswa yang memiliki email ber-domain gmail DAN memiliki 
+score_ekomomi tidak null.
+Simpan hasilnya dengan nama “data_siswa_gmail”.
+Berapa umur rata-rata dari siswa di “data_siswa_gmail” tersebut?
+"""
 data_siswa_gmail = (
     data[data['email']
     .str
@@ -65,11 +71,13 @@ umur_rata2 = (
 )
 print('Umur rata-rata siswa pada data_siswa_gmail yaitu:', umur_rata2);
 
-# Task 4
-# Membuat dataframe baru dengan data yang tersedia.
-# Kemudian append “additional_data” tersebut dengan data frame “data”.
-# Simpan dengan nama “new_data”.
-# Berapa median umur mereka sekarang? (setelah append dilakukan).
+"""
+Task 4
+Membuat dataframe baru dengan data yang tersedia.
+Kemudian append “additional_data” tersebut dengan data frame “data”.
+Simpan dengan nama “new_data”.
+Berapa median umur mereka sekarang? (setelah append dilakukan).
+"""
 additional_data = (
     pd
     .DataFrame({
@@ -98,12 +106,14 @@ median_umur = (
 
 print('Median umur seluruh siswa yaitu:', median_umur);
 
-# Task 5
-# Membuat dataframe baru dengan data yang tersedia dengan nama data_address
-# Lakukanlah merge data frame “new_data” pada no.4 di atas dengan “data_address”
-# Bandingkan umur rata-rata siswa per alamat mereka berasal
-# Pada alamat yang mana, umur rata-rata mereka yang paling kecil?
-# Masukan syntax jawaban di sini
+"""
+Task 5
+Membuat dataframe baru dengan data yang tersedia dengan nama data_address
+Lakukanlah merge data frame “new_data” pada no.4 di atas dengan “data_address”
+Bandingkan umur rata-rata siswa per alamat mereka berasal
+Pada alamat yang mana, umur rata-rata mereka yang paling kecil?
+Masukan syntax jawaban di sini
+"""
 data_address = (
     pd
     .DataFrame({
@@ -152,15 +162,17 @@ result = (
 display(result)
 print('Seperti terlihat pada tabel, umur rata-rata terkecil yaitu berasal dari DKI Jakarta.');
 
-# Task 6
-# Import ke-3 file Excel yang telah disediakan di sini.
-# Simpan data frame dengan nama airlines, airports dan flights
-# Case:
-# Department of Transportation sedang melakukan audit data
-# sepanjang tahun 2015, mereka membutuhkan data-data berikut:
-# a. Total penerbangan per bulan selama 2015.
-# b. Total penerbangan yang CANCELLED per bulan.
-# c. Rata-rata, Minimum dan Maksimum ELAPSED_TIME per bulan.
+"""
+Task 6
+Import ke-3 file Excel yang telah disediakan di sini.
+Simpan data frame dengan nama airlines, airports dan flights
+Case:
+Department of Transportation sedang melakukan audit data
+sepanjang tahun 2015, mereka membutuhkan data-data berikut:
+a. Total penerbangan per bulan selama 2015.
+b. Total penerbangan yang CANCELLED per bulan.
+c. Rata-rata, Minimum dan Maksimum ELAPSED_TIME per bulan.
+"""
 import pandas as pd
 airlines = pd.read_excel('data_airlines.xlsx')
 airports = pd.read_excel('data_airports.xlsx')
@@ -196,18 +208,20 @@ elapsed_perbulan = (
 )
 display(elapsed_perbulan);
 
-# Task 7
-# Case:
-# Department of Transportation sedang melakukan analisis data
-# untuk seluruh penerbangan dari airport: john f. kennedy dan
-# northwest florida.
-# Mereka ingin mengetahui total penerbangan per masing-masing
-# destinasi airports dan rata-rata distance dari kedua airports tersebut
-# ke setiap destinasi yang ada.
-# question:
-# Destinasi airport** mana yang paling banyak jumlah
-# penerbangannya?
-# ** sebutkan dalam bentuk nama airport (bukan code airport).
+"""
+Task 7
+Case:
+Department of Transportation sedang melakukan analisis data
+untuk seluruh penerbangan dari airport: john f. kennedy dan
+northwest florida.
+Mereka ingin mengetahui total penerbangan per masing-masing
+destinasi airports dan rata-rata distance dari kedua airports tersebut
+ke setiap destinasi yang ada.
+question:
+Destinasi airport** mana yang paling banyak jumlah
+penerbangannya?
+** sebutkan dalam bentuk nama airport (bukan code airport).
+"""
 result = (
     airports[airports['AIRPORT']
     .str
@@ -248,17 +262,19 @@ result = (
 )
 result['AIRPORT'];
 
-# Task 8
-# Buatlah 2 dataframe mengikuti petunjuk berikut:
-# df_1 : Filter dataset 01 telecom_revenue.csv dengan multiple kondisi
-# a. MonthlyRevenue > 10
-# b. Occupation terdiri dari Professional, Student, and Crafts.
-# df_2 : Filter dataset 02 telecom_usage.csv dengan multiple kondisi
-# a. CustomerCareCalls diawali digit genap (2, 4, 6 atau 8)
-# b. Nilai UnansweredCalls > BlockedCalls.
-# Hitunglah total CustomerID dan rata-rata DroppedCalls untuk
-# masing-masing occupation.
-# Pada occupation apa, rata-rata DroppedCalls paling besar?
+"""
+Task 8
+Buatlah 2 dataframe mengikuti petunjuk berikut:
+df_1 : Filter dataset 01 telecom_revenue.csv dengan multiple kondisi
+a. MonthlyRevenue > 10
+b. Occupation terdiri dari Professional, Student, and Crafts.
+df_2 : Filter dataset 02 telecom_usage.csv dengan multiple kondisi
+a. CustomerCareCalls diawali digit genap (2, 4, 6 atau 8)
+b. Nilai UnansweredCalls > BlockedCalls.
+Hitunglah total CustomerID dan rata-rata DroppedCalls untuk
+masing-masing occupation.
+Pada occupation apa, rata-rata DroppedCalls paling besar?
+"""
 import pandas as pd 
 
 df_1 = pd.read_csv('01 telecom_revenue.csv')
